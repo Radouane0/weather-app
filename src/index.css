@@ -14,6 +14,7 @@ body {
   align-items: center;
   background-color: #F85656;
   border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid black;
 }
 
 .header-nav {
@@ -31,11 +32,24 @@ li {
   font-size: 20px;
 }
 
-.weather {
+.container {
   background-color: #F4F4F3;
   margin-left: 25px;
   margin-right: 25px;
   height: 80vh;
   border-radius: 0 0 10px 10px;
+}
+
+.search {
+  text-align: center;
+  padding: 20px;
+}
+
+.search input {
+  padding: 1rem;
+  font-size: 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+  width: 50%;
 }
 
