@@ -1,40 +1,27 @@
 import './index.css';
 import React, { useState } from 'react';
-import axios from 'axios'
-import Header from './components/Header';
-import SearchBar from './components/SearchBar';
+import NavBar from './components/NavBar/NavBar';
+import SearchBar from './components/SearchBar/SearchBar';
+import WeatherList from './components/WeatherList/WeatherList';
+import CityName from './components/CityName/CityName';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [data, setData] = useState({})
-  const [location, setLocation] = useState('')
 
-  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${location}&lang=fr&appid=d8c4fc4492eda4421e39db791d83f82e&units=metric`
-
-  const searchLocation = (event) => {
-    if(event.key === 'Enter') {
-      axios.get(url).then((response) => {
-        setData(response.data)
-        console.log(response.data)
-      })
-      setLocation('')
-    }
-  }
 
   return (
     <div>
-      <Header />
-      <div className="container">
-        <SearchBar
-        setData = {setData}
-        location = {location}
-        setLocation = {setLocation}
-        searchLocation = {searchLocation}
-        />
-        <div className="weather">
-          <div className="weather-location">
-            <p>{data.name}</p>
+      <NavBar />
+      <div className="bg-main">
+        <SearchBar setData = {setData}/>
+        <WeatherList data={data} />
+        <CityName data={data}/>
+      {/*<div className="weather-temp">
+            <p>{data.list ? `${Math.round(data.list[0].main.temp)} °C `: ''}</p>
+            <p></p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
