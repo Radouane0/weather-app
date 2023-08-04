@@ -1,4 +1,4 @@
-import './index.css';
+import './index.scss';
 import React, { useState } from 'react';
 import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
@@ -15,13 +15,8 @@ const App = () => {
       <NavBar />
       <div className="bg-main">
         <SearchBar setData = {setData}/>
-        <WeatherList data={data} />
         <CityName data={data}/>
-      {/*<div className="weather-temp">
-            <p>{data.list ? `${Math.round(data.list[0].main.temp)} °C `: ''}</p>
-            <p></p>
-          </div>
-        </div> */}
+        <WeatherList data={data} />
       </div>
     </div>
   );

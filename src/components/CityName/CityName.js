@@ -1,12 +1,11 @@
 import React from 'react';
+import './CityName.scss';
 
 const CityName = ({ data }) => {
     return (
-        <div className="weather">
-          <div className="weather-location">
+          <div id="cityName">
             <p>{data.city ? data.city.name : ''}</p>
           </div>
-        </div>
     )
 }
 
