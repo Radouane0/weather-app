@@ -1,21 +1,46 @@
 import React from 'react';
 import './Weather.scss'
 
-const Weather = ({ elt }) => {
-    return (
-        <div className="weather">
-            <div className='block-1 center'>
-                <img 
-                    src={`https://openweathermap.org/img/wn/${elt.weather[0].icon}@2x.png`}
-                    alt={elt.weather[0].description}
-                />
+const Weather = ({ elts }) => {
+
+    const weatherMorning = elts.find(elt => elt.dt_txt.slice(11, 19) === "09:00:00");
+    const weatherAfternoon = elts.find(elt => elt.dt_txt.slice(11, 19) === "18:00:00");
+    
+    const getDayOfWeek = (day) => {
+        const days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+        const dayNumber = new Date(day).getDay();
+        return days[dayNumber];
+    }
+
+    if (weatherMorning && weatherAfternoon) {
+        return (
+            <div className="weather">
+                <div className='block-1 center'>{getDayOfWeek(weatherMorning.dt_txt.slice(0, 10))}</div>
+
+                <div className='block-2 center-row'>
+                    <div className='block-2-1 center'>
+                        <h5>Matin</h5>
+                        <img 
+                            src={`https://openweathermap.org/img/wn/${weatherMorning.weather[0].icon}@2x.png`}
+                            alt={weatherMorning.weather[0].description}
+                        />
+                        <p>{`${Math.round(weatherMorning.main.temp)} °C `}</p>
+                        <p>{weatherMorning.main.humidity}</p>
+                    </div>
+
+                    <div className='block-2-2 center'>
+                        <h5>Après-midi</h5>
+                        <img 
+                            src={`https://openweathermap.org/img/wn/${weatherAfternoon.weather[0].icon}@2x.png`}
+                            alt={weatherAfternoon.weather[0].description}
+                        />
+                        <p>{`${Math.round(weatherAfternoon.main.temp)} °C `}</p>
+                        <p>{weatherAfternoon.main.humidity}</p>
+                    </div>
+                </div>
             </div>
-            <div className='block-2 center'>
-                <div>{`${Math.round(elt.main.temp)} °C `}</div>
-                <div>{elt.main.humidity}</div>
-            </div>
-        </div>
-    );
+        );
+    }
 };
 
 export default Weather;

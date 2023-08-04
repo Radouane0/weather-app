@@ -1,22 +1,39 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Weather from '../Weather/Weather';
 import "./WeatherList.scss";
 
 const WeatherList = ({ data }) => {
-  if (data.list) {
-    return (
-      <div id="weatherList">
-        {
-          data.list.map((elt, index) => 
-            <Weather 
-              key={index}
-              elt={elt}
-            />
-          ) 
-        }
-      </div>
-    );
-  }
+
+  // Regrouper par dates
+  const weathers = useMemo(() => {
+    if (!data.list) return [];
+
+    const test = data.list.reduce((acc, curr) => {
+      const day = curr.dt_txt.slice(0, 10);
+      if (acc[day]) {
+        acc[day].push(curr);
+      } else {
+        acc[day] = [curr];
+      }
+      return acc;
+    }, {});
+
+    return test;
+  
+  }, [data]);
+
+  return (
+    <div id="weatherList">
+      {
+        Object.keys(weathers).map((w, index) => 
+          <Weather 
+            key={index}
+            elts={weathers[w]}
+          />
+        ) 
+      }
+    </div>
+  );
 };
 
 export default WeatherList;
