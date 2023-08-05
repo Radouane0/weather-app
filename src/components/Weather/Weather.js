@@ -1,10 +1,12 @@
 import React from 'react';
-import './Weather.scss';
 import { CiTempHigh } from 'react-icons/ci';
-import { GiWaterDrop } from 'react-icons/gi'
+import { GiWaterDrop } from 'react-icons/gi';
+import { useNavigate } from 'react-router-dom';
+import './Weather.scss';
 
 const Weather = ({ elts }) => {
 
+    const navigate = useNavigate();
     const weatherMorning = elts.find(elt => elt.dt_txt.slice(11, 19) === "09:00:00");
     const weatherAfternoon = elts.find(elt => elt.dt_txt.slice(11, 19) === "18:00:00");
     
@@ -14,9 +16,13 @@ const Weather = ({ elts }) => {
         return days[dayNumber];
     }
 
+    const handleClick = (day) => {
+        navigate('/weather-day/' + day)
+    }
+
     if (weatherMorning && weatherAfternoon) {
         return (
-            <div className="weather">
+            <div className="weather" onClick={() => handleClick(weatherMorning.dt_txt.slice(0, 10))}>
                 <div className='block-1 center'>{getDayOfWeek(weatherMorning.dt_txt.slice(0, 10))}</div>
 
                 <div className='block-2 center-row'>

@@ -1,7 +1,13 @@
 #navBar {
     height: 56px;
+
     nav {
         background-color: #F85656;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
     }
 }
 

@@ -1,21 +1,25 @@
-import './index.scss';
-import React, { useState } from 'react';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
-import SearchBar from './components/SearchBar/SearchBar';
-import WeatherList from './components/WeatherList/WeatherList';
-import CityName from './components/CityName/CityName';
+import Home from './pages/Home/Home';
+import WeatherDay from './pages/WeatherDay/WeatherDay';
+
+import './index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
-  const [data, setData] = useState({})
+
+  window.scrollTo({top: 0, behavior: 'smooth'});
 
   return (
     <div>
       <NavBar />
       <div className="bg-main">
-        <SearchBar setData = {setData}/>
-        <CityName data={data}/>
-        <WeatherList data={data} />
+        <Routes forceRefresh={false}>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/weather-day/:day" element={<WeatherDay />} />
+        </Routes>
       </div>
     </div>
   );
