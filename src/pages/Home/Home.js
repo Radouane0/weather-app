@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
-import SearchBar from './../../components/SearchBar/SearchBar';
-import WeatherList from './../../components/WeatherList/WeatherList';
-import CityName from './../../components/CityName/CityName';
+import React, { useEffect, useState } from 'react';
+import SearchBar from './SearchBar/SearchBar';
+import WeatherList from './WeatherList/WeatherList';
+import CityName from './CityName/CityName';
 
 import './Home.scss';
 
 const Home = () => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    let weatherData = localStorage.getItem("weather");
+    if (weatherData && weatherData !== '') {
+      weatherData = JSON.parse(weatherData);
+      setData(weatherData);
+    }
+  }, []);
 
   return (
     <div id="home">

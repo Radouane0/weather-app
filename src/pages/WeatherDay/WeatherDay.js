@@ -11,7 +11,7 @@ const WeatherDay = () => {
     const days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
     const dayNumber = new Date(day).getDay();
     return days[dayNumber];
-}
+  }
   
   return (
     <div id="weatherDay">

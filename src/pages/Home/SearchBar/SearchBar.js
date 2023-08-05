@@ -12,6 +12,7 @@ const SearchBar = ({ setData }) => {
       axios.get(url).then((response) => {
         setData(response.data)
         console.log(response.data)
+        localStorage.setItem("weather", JSON.stringify(response.data));
       }).catch((error) => {
         console.error('Error fetching data', error)
       })
