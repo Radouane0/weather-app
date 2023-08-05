@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import WeatherDayList from './WeatherDayList/WeatherDayList';
 
 import './DayPage.scss';
 
@@ -38,9 +39,9 @@ const DayPage = () => {
   if (data.city) {
     return (
       <div id="dayPage">
-        <p>{getDayOfWeek(params.day)}</p>
-        <p>{data.city.name}</p>
-        {/* <WeatherDayList data={daysData} /> */}
+        <p className='day'>{getDayOfWeek(params.day)}</p>
+        <p className='city'>{data.city.name}</p>
+        <WeatherDayList data={daysData} />
       </div>
     );
   }
