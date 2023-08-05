@@ -8,7 +8,7 @@ const WeatherList = ({ data }) => {
   const weathers = useMemo(() => {
     if (!data.list) return [];
 
-    const test = data.list.reduce((acc, curr) => {
+    return data.list.reduce((acc, curr) => {
       const day = curr.dt_txt.slice(0, 10);
       if (acc[day]) {
         acc[day].push(curr);
@@ -17,8 +17,6 @@ const WeatherList = ({ data }) => {
       }
       return acc;
     }, {});
-
-    return test;
   
   }, [data]);
 
