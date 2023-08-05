@@ -7,6 +7,7 @@ const DayPage = () => {
 
   const params = useParams();
   const [data, setData] = useState({});
+  const [daysData, setDaysData] = useState([{}]);
 
   const getDayOfWeek = (day) => {
     const days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
@@ -18,6 +19,9 @@ const DayPage = () => {
     let weatherData = localStorage.getItem("weather");
     if (weatherData && weatherData !== '') {
       weatherData = JSON.parse(weatherData);
+      setData(weatherData);
+
+      // Récupération des météos de la journée params.day
       const weatherDayData = weatherData.list.reduce((acc, curr) => {
         const day = curr.dt_txt.slice(0, 10);
         if (day === params.day) {
@@ -25,16 +29,21 @@ const DayPage = () => {
         }
         return acc;
       }, []);
-      setData(weatherDayData);
+      setDaysData(weatherDayData);
     }
   }, [params.day]);
+
+  console.log(data)
   
-  return (
-    <div id="dayPage">
-      {getDayOfWeek(params.day)}
-      {/* <WeatherDayList data={data} /> */}
-    </div>
-  );
+  if (data.city) {
+    return (
+      <div id="dayPage">
+        <p>{getDayOfWeek(params.day)}</p>
+        <p>{data.city.name}</p>
+        {/* <WeatherDayList data={daysData} /> */}
+      </div>
+    );
+  }
 };
 
 export default DayPage;
