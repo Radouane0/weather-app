@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './pages/Home/Home';
-import WeatherDay from './pages/WeatherDay/WeatherDay';
+import DayPage from './pages/DayPage/DayPage';
 
 import './index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +18,7 @@ const App = () => {
         <Routes forceRefresh={false}>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/weather-day/:day" element={<WeatherDay />} />
+          <Route path="/weather-day/:day" element={<DayPage />} />
         </Routes>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import './WeatherDay.scss';
+import './DayPage.scss';
 
-const WeatherDay = () => {
+const DayPage = () => {
 
   const params = useParams();
   const [data, setData] = useState({});
@@ -30,13 +30,13 @@ const WeatherDay = () => {
   }, [params.day]);
   
   return (
-    <div id="weatherDay">
+    <div id="dayPage">
       {getDayOfWeek(params.day)}
       {/* <WeatherDayList data={data} /> */}
     </div>
   );
 };
 
-export default WeatherDay;
+export default DayPage;
 
   
