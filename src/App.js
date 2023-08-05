@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => {
   const [data, setData] = useState({})
 
-
   return (
     <div>
       <NavBar />

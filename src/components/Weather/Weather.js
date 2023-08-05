@@ -1,5 +1,7 @@
 import React from 'react';
-import './Weather.scss'
+import './Weather.scss';
+import { CiTempHigh } from 'react-icons/ci';
+import { GiWaterDrop } from 'react-icons/gi'
 
 const Weather = ({ elts }) => {
 
@@ -24,8 +26,8 @@ const Weather = ({ elts }) => {
                             src={`https://openweathermap.org/img/wn/${weatherMorning.weather[0].icon}@2x.png`}
                             alt={weatherMorning.weather[0].description}
                         />
-                        <p>{`${Math.round(weatherMorning.main.temp)} °C `}</p>
-                        <p>{weatherMorning.main.humidity}</p>
+                        <p><CiTempHigh className='temp-icon'/>{`${Math.round(weatherMorning.main.temp)} °C `}</p>
+                        <p><GiWaterDrop className='humidity-icon'/>{weatherMorning.main.humidity}%</p>
                     </div>
 
                     <div className='block-2-2 center'>
@@ -34,8 +36,8 @@ const Weather = ({ elts }) => {
                             src={`https://openweathermap.org/img/wn/${weatherAfternoon.weather[0].icon}@2x.png`}
                             alt={weatherAfternoon.weather[0].description}
                         />
-                        <p>{`${Math.round(weatherAfternoon.main.temp)} °C `}</p>
-                        <p>{weatherAfternoon.main.humidity}</p>
+                        <p><CiTempHigh className='temp-icon'/>{`${Math.round(weatherAfternoon.main.temp)} °C `}</p>
+                        <p><GiWaterDrop className='humidity-icon'/>{weatherAfternoon.main.humidity}%</p>
                     </div>
                 </div>
             </div>
