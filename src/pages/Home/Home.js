@@ -18,6 +18,7 @@ const Home = () => {
   }, []);
 
   const getWeather = (location) => {
+    setData({})
     const url = `http://api.openweathermap.org/data/2.5/forecast?q=${location}&lang=fr&appid=d8c4fc4492eda4421e39db791d83f82e&units=metric`;
     axios.get(url).then((response) => {
       setData(response.data)
@@ -28,17 +29,10 @@ const Home = () => {
     })
   }
 
-  const handleRefresh = () => {
-    if (data.city) {
-      getWeather(data.city.name);
-    }
-  }
-
   return (
     <div id="home">
         <SearchBar getWeather={getWeather}/>
-        <button onClick={handleRefresh}>Rafraichir</button>
-        <CityName data={data}/>
+        <CityName data={data} getWeather={getWeather}/>
         <WeatherList data={data} />
     </div>
   );

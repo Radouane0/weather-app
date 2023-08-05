@@ -4,7 +4,8 @@ import { GiWaterDrop } from 'react-icons/gi'
 
 import "./WeatherDay.scss";
 
-const WeatherDay = ({elt}) => {
+const WeatherDay = ({ elt }) => {
+
     return (
         <div className='block-3 center'>
             <h5>{elt.dt_txt.slice(11, 13)}H</h5>

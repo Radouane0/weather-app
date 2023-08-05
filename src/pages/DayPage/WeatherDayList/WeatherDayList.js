@@ -1,7 +1,7 @@
 import React from 'react';
 import WeatherDay from '../WeatherDay/WeatherDay';
 
-const WeatherDayList = ({data}) => {
+const WeatherDayList = ({ data }) => {
     console.log(data)
     return (
         <div>

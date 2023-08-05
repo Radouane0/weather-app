@@ -1,12 +1,23 @@
-.day {
+.city {
     display: flex;
     justify-content: center;
     font-size: 25px;
-    margin-top: 5px;
+    padding: 10px;
     margin-bottom: 0;
+
+    .refresh {
+        cursor: pointer;
+        align-self: center;
+        margin-left: 10px;
+        border: 1px solid;
+        border-radius: 15px;
+        font-size: 30px;
+        padding: 3px;
+        background-color: #e5e5e5;
+    }
 }
 
-.city {
+.day {
     display: flex;
     justify-content: center;
     font-size: 25px;
