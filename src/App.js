@@ -4,9 +4,11 @@ import NavBar from './components/NavBar/NavBar';
 import Home from './pages/Home/Home';
 import DayPage from './pages/DayPage/DayPage';
 import Contact from './pages/Contact/Contact';
+import Footer from './components/Footer/Footer';
 
 import './index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App = () => {
 
@@ -23,6 +25,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />}/>
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 };
