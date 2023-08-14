@@ -5,29 +5,30 @@
     margin: 0 auto;
     align-items: center;
     padding-top: 25px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
 
-  ::placeholder {
-    font-size: 14px;
-  }
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    ::placeholder {
+      font-size: 14px;
+    }
+
+}
   
   button {
     padding: 10px 20px;
@@ -35,9 +36,11 @@
     color: white;
     border: none;
     cursor: pointer;
+
+    button:hover {
+      opacity: 70%;
+    }
   }
   
-  button:hover {
-    opacity: 70%;
-  }
+  
   

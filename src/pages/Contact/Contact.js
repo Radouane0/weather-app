@@ -10,6 +10,8 @@ const Contact = () => {
     comment: ""
   });
 
+  const [nameError, setNameError] = useState(null);
+
   // Gérer les changements dans les champs de formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,10 +24,17 @@ const Contact = () => {
   // Gérer la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Vous pouvez ajouter ici la logique pour envoyer les données du formulaire
-    // à votre serveur ou à un service de gestion de formulaires.
+
+    const nameRegex = /^[A-Za-z\s]+$/;
+
+    if (!nameRegex.test(formData.name)) {
+      alert("Le nom doit contenir uniquement des lettres.")
+      return;
+    } else {
+      setNameError(null);
+    }
+
     console.log("Données soumises :", formData);
-    // Réinitialiser les champs après la soumission
     setFormData({
       name: "",
       email: "",
