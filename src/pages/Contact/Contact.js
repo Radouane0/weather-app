@@ -44,7 +44,8 @@ const Contact = () => {
 
   return (
     <form onSubmit={handleSubmit} className="contact-form">
-      <div>
+      <h2>Nous Contacter</h2>
+      <div className="name">
         <label htmlFor="name">Nom</label>
         <input
           type="text"
@@ -56,7 +57,7 @@ const Contact = () => {
           required
         />
       </div>
-      <div>
+      <div className="email">
         <label htmlFor="email">E-mail</label>
         <input
           type="email"
@@ -77,7 +78,7 @@ const Contact = () => {
           onChange={handleChange}
           rows="4"
           cols={25}
-          placeholder="Si vous avez des suggestions ou si vous êtes tombé sur des bugs, n'hésitez pas à communiquer avec moi."
+          placeholder="Si vous avez des suggestions ou si vous êtes tombé sur des bugs, n'hésitez pas à communiquer avec nous."
           required
           style={{ resize: "none" }}
         />
