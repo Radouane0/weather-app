@@ -10,7 +10,8 @@ const Contact = () => {
     comment: ""
   });
 
-  const [nameError, setNameError] = useState(null);
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   // Gérer les changements dans les champs de formulaire
   const handleChange = (e) => {
@@ -25,13 +26,8 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const nameRegex = /^[A-Za-z\s]+$/;
-
-    if (!nameRegex.test(formData.name)) {
-      alert("Le nom doit contenir uniquement des lettres.")
-      return;
-    } else {
-      setNameError(null);
+    if(!checkName() || !checkEmail()) {
+      return 
     }
 
     console.log("Données soumises :", formData);
@@ -42,8 +38,35 @@ const Contact = () => {
     });
   };
 
+  const checkName = () => {
+
+    const nameRegex = /^[A-Za-z\s]+$/;
+
+    if (!nameRegex.test(formData.name)) {
+      setNameError("Le nom doit contenir uniquement des lettres.")
+      return false;
+    } else {
+      setNameError("");
+      return true;
+    }
+  };
+
+  const checkEmail = () => {
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailRegex.test(formData.email)) {
+      setEmailError("Veuillez entrer une adresse e-mail valide.")
+      return false;
+    } else {
+      setEmailError("");
+      return true;
+    }
+  };
+
+
   return (
-    <form onSubmit={handleSubmit} className="contact-form">
+    <form onSubmit={handleSubmit} className="contact-form" noValidate>
       <h2>Nous Contacter</h2>
       <div className="name">
         <label htmlFor="name">Nom</label>
@@ -56,6 +79,7 @@ const Contact = () => {
           placeholder="Veuillez écrire votre nom..."
           required
         />
+        <span>{nameError}</span>
       </div>
       <div className="email">
         <label htmlFor="email">E-mail</label>
@@ -66,8 +90,8 @@ const Contact = () => {
           value={formData.email}
           onChange={handleChange}
           placeholder="Veuillez écrire votre e-mail..."
-          required
         />
+        <span>{emailError}</span>
       </div>
       <div>
         <label htmlFor="comment">Commentaire</label>
