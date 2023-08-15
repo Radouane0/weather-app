@@ -50,8 +50,9 @@
     border: none;
     cursor: pointer;
 
-    button:hover {
-      opacity: 70%;
+    &:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
     }
   }
   

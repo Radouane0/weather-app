@@ -13,6 +13,7 @@ const Contact = () => {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
 
+
   // Gérer les changements dans les champs de formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -100,7 +101,8 @@ const Contact = () => {
           name="comment"
           value={formData.comment}
           onChange={handleChange}
-          rows="4"
+          maxLength={150}
+          rows={4}
           cols={25}
           placeholder="Si vous avez des suggestions ou si vous êtes tombé sur des bugs, n'hésitez pas à communiquer avec nous."
           required
