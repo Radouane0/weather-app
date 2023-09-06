@@ -1,4 +1,5 @@
 import React from 'react';
+import './NavBar.scss';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,7 +10,7 @@ const NavBar = () => {
     return (
         <div id='navBar'>
             <Navbar collapseOnSelect expand="lg">
-            <Container>
+            <Container className='nav-container'>
                 <Navbar.Brand href="/home">Weather App</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

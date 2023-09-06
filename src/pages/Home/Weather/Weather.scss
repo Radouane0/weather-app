@@ -7,7 +7,6 @@
     flex-direction: column;
     align-items: center;
     padding: 5px;
-
     &:hover {
         background-color: beige;
         cursor: pointer;
@@ -19,6 +18,12 @@
         font-weight: bold;
         font-size: 18px;
         margin: 4px;
+    }
+    @media screen and (min-width: 768px) {
+
+        .block-1 {
+            font-size: 25px;
+        }    
     }
 
     .block-2 {
@@ -32,20 +37,54 @@
             .temp-icon {
                 font-size: 22px;
             }
+            @media screen and (min-width: 768px) {
+                .temp-icon {
+                font-size: 30px;
+                }
+                
+            }
 
             .humidity-icon {
                 font-size: 18px;
+            }
+            @media screen and (min-width: 768px) {
+                .humidity-icon {
+                font-size: 23px;
+                }
+                
             }
     
             h5 {
                 font-size: 16px;
                 margin-bottom: 0px;
             }
+            @media screen and (min-width: 768px) {
+                h5 {
+                font-size: 23px;
+                }    
+            }
+
+            @media screen and (min-width: 768px) {
+                img {
+                    width: 33%;
+                }
+            }
 
             p {
                 font-size: 16px;
                 margin-bottom: 0px;
             }
+            @media screen and (min-width: 768px) {
+                p {
+                    font-size: 20px;
+                }
+            }
         }
     }
+}
+@media screen and (min-width: 768px) {
+
+    .weather {
+        padding: 8px;
+    }  
 }

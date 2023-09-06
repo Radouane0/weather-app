@@ -94,7 +94,7 @@ const Contact = () => {
         />
         <span>{emailError}</span>
       </div>
-      <div>
+      <div className="comment">
         <label htmlFor="comment">Commentaire</label>
         <textarea
           id="comment"

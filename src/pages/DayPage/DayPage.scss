@@ -9,7 +9,6 @@
     font-size: 25px;
     padding: 10px;
     margin-bottom: 0;
-
     .refresh {
         cursor: pointer;
         align-self: center;
@@ -22,8 +21,20 @@
     }
 }
 
+@media screen and (min-width: 768px) {
+    .city {
+        padding-top: 10px;
+        font-size: 30px;
+    }  
+}
+
 .day {
     display: flex;
     justify-content: center;
     font-size: 25px;
+}
+@media screen and (min-width: 768px) {
+    .day {
+        font-size: 30px;
+    }   
 }

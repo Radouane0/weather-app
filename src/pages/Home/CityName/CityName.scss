@@ -6,7 +6,6 @@
     p {
         margin-bottom: 0;
     }
-
     .refresh {
         cursor: pointer;
         align-self: center;
@@ -16,5 +15,17 @@
         font-size: 30px;
         padding: 3px;
         background-color: #e5e5e5;
+    }
+
+    @media screen and (min-width: 768px) {
+
+        p {
+            font-size: 35px;
+        }
+
+        .refresh {
+            font-size: 35px;
+        }
+        
     }
 }

@@ -12,6 +12,12 @@ html, body, #root {
   background-color: #F4F4F3;
   min-height: 600px;
 }
+@media screen and (min-width: 768px) {
+  .bg-main {
+    min-height: 858px;
+  }
+  
+}
 
 .center {
 	display: flex;

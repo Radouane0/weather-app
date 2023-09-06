@@ -55,6 +55,46 @@
       transform: scale(1.05);
     }
   }
+
+  @media screen and (min-width: 768px) {
+    .contact-form {
+      max-width: 100%;
+    }
+    .contact-form ::placeholder {
+      font-size: 20px;
+    }
+
+    .name label {
+      font-size: 23px;
+    }
+    .name input {
+      font-size: 20px;
+    }
+
+    .email label {
+      font-size: 23px;
+    }
+    .email input {
+      font-size: 20px;
+    }
+
+    .comment {
+      width: 85%;
+    }
+    .comment label {
+      font-size: 23px;
+    }
+    .comment textarea {
+      font-size: 20px;
+    }
+
+    .contact-form button {
+      height: 60px;
+      width: 200px;
+      font-size: 23px;
+    }
+    
+  }
   
   
   
